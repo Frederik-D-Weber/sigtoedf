@@ -2304,8 +2304,8 @@ if __name__ == '__main__':
     #EDF_format_filetype = pyedflib.FILETYPE_EDFPLUS
     # temp_filterStringFileIndicator = "_prefiltered"
     # temp_filterStringHeader = 'HP ' + str(self.prefilterEDF_hp) + ' Hz'
-    # EDF_format_extention = ".bdf"
-    # EDF_format_filetype = pyedflib.FILETYPE_BDFPLUS
+    EDF_format_extention = ".bdf"
+    EDF_format_filetype = pyedflib.FILETYPE_BDFPLUS
     temp_filterStringFileIndicator = "_not_refiltered"
 
     nChannels = sf.signal_data.__len__()
