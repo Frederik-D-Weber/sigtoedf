@@ -2300,8 +2300,8 @@ if __name__ == '__main__':
 
     dest_path = input_name
 
-    #EDF_format_extention = ".edf"
-    #EDF_format_filetype = pyedflib.FILETYPE_EDFPLUS
+    EDF_format_extention = ".edf"
+    EDF_format_filetype = pyedflib.FILETYPE_EDFPLUS
     # temp_filterStringFileIndicator = "_prefiltered"
     # temp_filterStringHeader = 'HP ' + str(self.prefilterEDF_hp) + ' Hz'
     # EDF_format_extention = ".bdf"
