@@ -13,8 +13,13 @@ Ubuntu 18.04 LTS, x64
 
 ### INSTALLATION:
 ```
+# install python and pip
 sudo apt-get install python
 sudo apt-get install python-pip
+
+# intall the repo
+git clone https://github.com/Frederik-D-Weber/sigtoedf/
+cd sigtoedf
 sudo pip install -r requirements.txt
 ```
 
