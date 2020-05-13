@@ -2201,6 +2201,7 @@ if __name__ == '__main__':
 
     for rc in sf.recorder_info.channels:
         fevent.write(create_row(RecorderChannel, rc.create_data_tuple(sf.recorder_info.sensitivity, sf.recorder_info.lowFilter, sf.recorder_info.highFilter)))
+        fevent.write('\n')
     fevent.write("%20s\t%d\n" % ("Page buffor size:", sum([x.save_buffer_size for x in sf.recorder_info.channels])))
 
 
