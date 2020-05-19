@@ -713,7 +713,7 @@ def read_signal_pages(sf, read_signal_data, file_size, offset, page_size, epoch_
                 sf.seek(current_offset)
     if read_signal_data:
         for i in range(channels_used):
-            signals[i] = signals[i] * channels[i].cal_factor * (recorder_info.sensitivity[channels[i].sensitivity_index]/100.0) + channels[i].cal_offset * (recorder_info.sensitivity[channels[i].sensitivity_index]/100.0)  return pages, signals
+            signals[i] = signals[i] * channels[i].cal_factor * (recorder_info.sensitivity[channels[i].sensitivity_index]/100.0) + channels[i].cal_offset * (recorder_info.sensitivity[channels[i].sensitivity_index]/100.0)
     return pages, signals
 
 def string_trim_to_0(s):
