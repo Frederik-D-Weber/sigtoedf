@@ -363,7 +363,7 @@ def read_signal_file(file_name, read_signal_data):
         store_events_list = get_selected_events_4_types(signal.events, [Event.ET_SAVESKIPEVENT])
         signal.store_events = len(store_events_list)
         spages = read_signal_pages(sf, read_signal_data, file_size, signal.data_table.signal_info.offset, signal.data_table.signal_info.size, 30,
-                                   signal.recorder_info.numberOfChannelsUsed, signal.recorder_info.channels)
+                                   signal.recorder_info.numberOfChannelsUsed, signal.recorder_info.channels, signal.read_recorder_info)
         signal.signal_pages = spages[0]
         signal.signal_data = spages[1]
     finally:
@@ -680,7 +680,7 @@ def eof(f):
     return f.tell() == os.fstat(f.fileno()).st_size
 
 
-def read_signal_pages(sf, read_signal_data, file_size, offset, page_size, epoch_length, channels_used, channels):
+def read_signal_pages(sf, read_signal_data, file_size, offset, page_size, epoch_length, channels_used, channels, recorder_info):
     header_length = 6
     num_pages = int((file_size-offset)/page_size)
     pages=[None]*num_pages
@@ -713,7 +713,7 @@ def read_signal_pages(sf, read_signal_data, file_size, offset, page_size, epoch_
                 sf.seek(current_offset)
     if read_signal_data:
         for i in range(channels_used):
-            signals[i] = signals[i] * channels[i].cal_factor * (channels[i].sensitivity_index/100.0) + channels[i].cal_offset * (channels[i].sensitivity_index/100.0)
+            signals[i] = signals[i] * channels[i].cal_factor * (recorder_info.sensitivity[channels[i].sensitivity_index]/100.0) + channels[i].cal_offset * (recorder_info.sensitivity[channels[i].sensitivity_index]/100.0)  return pages, signals
     return pages, signals
 
 def string_trim_to_0(s):
