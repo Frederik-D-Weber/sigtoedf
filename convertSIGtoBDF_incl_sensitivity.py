@@ -363,7 +363,7 @@ def read_signal_file(file_name, read_signal_data):
         store_events_list = get_selected_events_4_types(signal.events, [Event.ET_SAVESKIPEVENT])
         signal.store_events = len(store_events_list)
         spages = read_signal_pages(sf, read_signal_data, file_size, signal.data_table.signal_info.offset, signal.data_table.signal_info.size, 30,
-                                   signal.recorder_info.numberOfChannelsUsed, signal.recorder_info.channels, signal.read_recorder_info)
+                                   signal.recorder_info.numberOfChannelsUsed, signal.recorder_info.channels, signal.recorder_info)
         signal.signal_pages = spages[0]
         signal.signal_data = spages[1]
     finally:
